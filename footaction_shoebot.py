@@ -30,6 +30,7 @@ while x is 0:
 		driver.find_element_by_id('addToCartLink').click()
 		print 'Successfully added, navigating to checkout...\n'
 		driver.get('http://www.footaction.com/shoppingcart/default.cfm?sku=')
+		x = 1
 		time.sleep(1)
 		driver.refresh()
 		driver.find_element_by_id('cart_checkout_button').click()
@@ -38,8 +39,7 @@ while x is 0:
 		print 'Submitting order...\n'
 
 		## Only uncomment the next line if you're ready to purchase
-		# driver.find_element_by_id('orderSubmit').click()
-		x = 1
+		driver.find_element_by_id('orderSubmit').click()
 	except Exception as e:
 		attempt_number = attempt_number + 1
 		print "Couldn't find the button. Refreshing...\n"
